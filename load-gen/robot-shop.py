@@ -66,6 +66,7 @@ class UserBehavior(HttpUser):
                 self.client.put('/api/ratings/api/rate/{}/{}'.format(item['sku'], randint(1, 5)), headers={'x-forwarded-for': fake_ip})
 
             self.client.get('/api/catalogue/product/{}'.format(item['sku']), headers={'x-forwarded-for': fake_ip})
+            self.client.get('/api/details/getDetails', headers={'x-forwarded-for': fake_ip}).json()
             self.client.get('/api/ratings/api/fetch/{}'.format(item['sku']), headers={'x-forwarded-for': fake_ip})
             self.client.get('/api/cart/add/{}/{}/1'.format(uniqueid, item['sku']), headers={'x-forwarded-for': fake_ip})
 
@@ -86,6 +87,11 @@ class UserBehavior(HttpUser):
 
         order = self.client.post('/api/payment/pay/{}'.format(uniqueid), json=cart, headers={'x-forwarded-for': fake_ip}).json()
         print('Order {}'.format(order))
+        
+        with open('/load/payload.xml', 'r') as xml_fh:
+            xml_data = xml_fh.read()
+        output = self.client.post('/api/details/customerRecord', data=xml_data, headers={'x-forwarded-for': fake_ip,'Content-Type':'application/soap+xml'})
+          
 
     @task
     def error(self):

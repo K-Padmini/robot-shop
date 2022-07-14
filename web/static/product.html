@@ -8,6 +8,9 @@
     <div class="productimage">
         <img src="/images/{{ data.product.sku }}.png"/>
     </div>
+    <div class="getDetails">
+     <button ng-click="fetchDetails();">Get Details</button>
+    </div>
     <div class="rating">
         Rating
         <span ng-if="data.rating.avg_rating != 0">

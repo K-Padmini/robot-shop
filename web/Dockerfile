@@ -30,6 +30,7 @@ ENV CATALOGUE_HOST=catalogue \
     USER_HOST=user \
     CART_HOST=cart \
     SHIPPING_HOST=shipping \
+    DETAILS_HOST=details \
     PAYMENT_HOST=payment \
     RATINGS_HOST=ratings \
     INSTANA_SERVICE_NAME=nginx-web

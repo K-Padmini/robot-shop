@@ -1,39 +1,31 @@
 {
-    "id": "/robotshop/web",
+    "id": "/robotshop/details",
     "backoffFactor": 1.15,
     "backoffSeconds": 30,
     "container": {
       "portMappings": [
         {
-          "containerPort": 8080,
-          "hostPort": 0,
-          "protocol": "tcp",
-          "servicePort": 10010,
-          "name": "web"
+          "containerPort": 0,
+          "labels": {
+            "VIP_0": "/robotshop/details:8080"
+          },
+          "servicePort": 10001
         }
       ],
       "type": "DOCKER",
       "volumes": [],
       "docker": {
-        "image": "robotshop/rs-web:latest",
+        "image": "robotshop/rs-details:latest",
         "forcePullImage": false,
         "privileged": false,
         "parameters": []
       }
     },
-    "cpus": 0.1,
+    "cpus": 0.5,
     "disk": 0,
-    "env": {
-      "PAYMENT_HOST": "robotshoppayment.marathon.l4lb.thisdcos.directory",
-      "USER_HOST": "robotshopuser.marathon.l4lb.thisdcos.directory",
-      "CART_HOST": "robotshopcart.marathon.l4lb.thisdcos.directory",
-      "CATALOGUE_HOST": "robotshopcatalogue.marathon.l4lb.thisdcos.directory",
-      "SHIPPING_HOST": "robotshopshipping.marathon.l4lb.thisdcos.directory",
-      "DETAILS_HOST": "robotshopdetails.marathon.l4lb.thisdcos.directory"
-    },
     "instances": 1,
     "maxLaunchDelaySeconds": 900,
-    "mem": 128,
+    "mem": 512,
     "gpus": 0,
     "networks": [
       {

@@ -11,6 +11,7 @@ ENV HOST="http://localhost:8080/" \
 WORKDIR /load
 
 COPY requirements.txt /load/
+COPY payload.xml /load/
 
 RUN pip install -r requirements.txt
 

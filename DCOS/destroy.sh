@@ -9,5 +9,6 @@ dcos marathon app remove robotshop/payment
 dcos marathon app remove robotshop/rabbitmq 
 dcos marathon app remove robotshop/redis    
 dcos marathon app remove robotshop/shipping 
+dcos marathon app remove robotshop/details 
 dcos marathon app remove robotshop/user     
 dcos marathon app remove robotshop/web      

@@ -38,6 +38,24 @@ services:
       retries: 3
     logging:
       <<: *logging
+  details:
+#    profiles:
+#      - details
+    build:
+      context: details
+    image: ${REPO}/rs-details:${TAG}
+    environment:
+      POST_URL: "http://esysmvs1.wsclab.washington.ibm.com:9081/GENAPP/LGICUS01"
+      GET_URL:  "http://wlag.svl.ibm.com:53998/catalogManager/item/10"    
+    networks:
+      - robot-shop
+    healthcheck:
+      test: ["CMD", "curl", "-H", "X-INSTANA-SYNTHETIC: 1", "-f", "http://localhost:8080/health"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+    logging:
+      <<: *logging
   user:
     build:
       context: user
@@ -151,6 +169,7 @@ services:
       - user
       - shipping
       - payment
+      - details
     ports:
       - "8080:8080"
     networks:

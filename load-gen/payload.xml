@@ -1,0 +1,25 @@
+                <soap:Envelope
+                                                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                                xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+                                                xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                                                xmlns:q0="http://www.ibm.com/foo" >
+                                <soap:Body>
+                                                <q0:LGICUS01Operation>
+                                                                <q0:ca>
+                                                                                <q0:ca_request_id>01ICUS</q0:ca_request_id>
+                                                                                <q0:ca_return_code>00</q0:ca_return_code>
+                                                                                <q0:ca_customer_num>1</q0:ca_customer_num>
+                                                                                <q0:ca_first_name/>
+                                                                                <q0:ca_last_name/>
+                                                                                <q0:ca_dob/>
+                                                                                <q0:ca_house_name/>
+                                                                                <q0:ca_postcode/>
+                                                                                <q0:ca_num_policies>0</q0:ca_num_policies>
+                                                                                <q0:ca_phone_mobile/>
+                                                                                <q0:ca_phone_home/>
+                                                                                <q0:ca_email_address/>
+                                                                                <q0:ca_policy_data/>
+                                                                </q0:ca>
+                                                </q0:LGICUS01Operation>
+                                </soap:Body>
+                </soap:Envelope>

@@ -26,6 +26,9 @@
         }).when('/product/:sku', {
             templateUrl: 'product.html',
             controller: 'productform'
+        }).when('/details', {
+            templateUrl: 'product.html',
+            controller: 'productform'
         }).when('/login', {
             templateUrl: 'login.html',
             controller: 'loginform'
@@ -268,7 +271,20 @@
         
         loadProduct($routeParams.sku);
         loadRating($routeParams.sku);
+        
+        $scope.fetchDetails = function() {
+			 $http({
+            url : '/api/details/getDetails',
+            method: 'GET'
+            }).then((res) => {
+                console.log(res.data);
+            }).catch((e) => {
+                console.log('ERROR', e);
+            });
+        };
+        
     });
+
 
     robotshop.controller('cartform', function($scope, $http, $location, currentUser) {
         $scope.data = {};
